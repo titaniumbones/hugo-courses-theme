@@ -1,0 +1,202 @@
+                    <div class="row">
+                        <div class="footer-panel" style="display:none">
+			  <p>Last revision: {{ .Lastmod.Format "January 2, 2006" }}{{ if .IsPage }}{{ with .GitInfo }} | <a href="https://github.com/gohugoio/hugo/commit/{{ .Hash }}">{{ .Subject }} ({{ .AbbreviatedHash }})</a>{{end }}{{ end }}
+                          <span style="float: right;">Hugo v{{ .Site.Params.release }} documentation</span>
+                        </p>
+                        {{ with  getenv "REPOSITORY_URL" -}}
+                        <a href="https://www.netlify.com" style="float: right; padding-right: 20px;">
+                        <img src="https://www.netlify.com/img/global/badges/netlify-color-bg.svg"/>
+                        </a>
+                        {{- end }}
+                        </div>
+                    </div>
+
+                    </div>
+                    </section>
+
+                    </div>
+
+                <div class="col-md-1">
+                    {{ if .IsPage }}
+                    {{ with .GetParam "next" }}
+                    <a class="navigation next" href="{{.}}">
+                        <i class="fa fa-angle-right"> </i>
+                    </a>
+                    {{ end }}
+                    {{ end }}
+                </div>
+              </div>
+              <!-- page start-->
+          </section>
+      </section>
+     <!--main content end-->
+  </section>
+  <!-- container section end -->
+
+    <!-- javascripts -->
+    <script type="text/javascript" src="/vendor/jquery/js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="/vendor/flesler/js/jquery.scrollTo.min.js"></script>
+    <script type="text/javascript" src="/vendor/twitter/js/bootstrap.min.js"></script>
+    <!--custom script for all page-->
+    <script type="text/javascript" src="/vendor/highlightjs/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/scripts.js"></script>
+    <!-- Algolia search -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script> 
+    <!-- <script type="text/javascript">  -->
+    <!-- docsearch({ -->
+    <!--   apiKey: '167e7998590aebda7f9fedcf86bc4a55', -->
+    <!--   indexName: 'hugodocs', -->
+    <!--   inputSelector: '#search-input', -->
+    <!--   algoliaOptions: { -->
+    <!--     hitsPerPage: 5 -->
+    <!--   } -->
+    <!-- });  -->
+    <!-- </script> -->
+    <!-- Google Analytics -->
+    <!-- {{ template "partials/analytics.html" . }} -->
+
+       <script>
+      {{ "/* Add headers to scrollspy, stolen form material-docs */" | safeJS }}
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        {{ "/* Add permanent link next to the headers. this is hideous, get rid of it. */" | safeJS }}
+        // var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        // for(var i = 0; i < headers.length; i++) {
+        //     var a = document.createElement("a");
+        //     a.setAttribute("class", "headerlink");
+        //     a.setAttribute("href", "#" + headers[i].id);
+        //     a.setAttribute("title", "Permanent link")
+        //     a.innerHTML = {{ or .Site.Params.permalink "¶" }};
+        //     headers[i].appendChild(a);
+        // }
+      }
+    </script>
+    <script type="text/javascript" src="/js/lunr.js"></script>
+    <script type="text/javascript">
+    var lunrIndex, $results, pagesIndex;
+ 
+    function getQueryVariable(variable) {
+        var query = window.location.search.substring(1);
+        var vars = query.split('&');
+ 
+        for (var i = 0; i < vars.length; i++) {
+            var pair = vars[i].split('=');
+ 
+            if (pair[0] === variable) {
+                return decodeURIComponent(pair[1].replace(/\+/g, '%20'));
+            }
+        }
+    }
+ 
+    var searchTerm = getQueryVariable('query');
+ 
+    // Initialize lunrjs using our generated index file
+    function initLunr() {
+        // First retrieve the index file
+        jQuery.getJSON("/index.json")
+            .done(function(index) {
+                pagesIndex = index;
+                console.log("index:", pagesIndex);
+                lunrIndex = lunr(function() {
+                    this.field("title", { boost: 10 });
+                    this.field("tags", { boost: 5 });
+                    this.field("categories", { boost: 5 });
+                    this.field("content");
+                    this.ref("uri");
+ 
+                    pagesIndex.forEach(function (page) {
+                        this.add(page)
+                    }, this)
+                });
+            })
+            .fail(function(jqxhr, textStatus, error) {
+                var err = textStatus + ", " + error;
+                console.error("Error getting Hugo index flie:", err);
+            });
+    }
+ 
+    // Nothing crazy here, just hook up a listener on the input field
+    function initUI() {
+        $results = $("#lunr-results");
+        jQuery("#search").keyup(function() {
+            $results.empty();
+ 
+            // Only trigger a search when 2 chars. at least have been provided
+            var query = $(this).val();
+            if (query.length < 2) {
+                return;
+            }
+ 
+            var results = search(query);
+ 
+            renderResults(results);
+        });
+    }
+ 
+    /**
+     * Trigger a search in lunr and transform the result
+     *
+     * @param  {String} query
+     * @return {Array}  results
+     */
+    function search(query) {
+        return lunrIndex.search(query).map(function(result) {
+                return pagesIndex.filter(function(page) {
+                    return page.uri === result.ref;
+                })[0];
+            });
+    }
+ 
+    /**
+     * Display the 10 first results
+     *
+     * @param  {Array} results to display
+     */
+    function renderResults(results) {
+        if (!results.length) {
+            return;
+        }
+ 
+        // Only show the ten first results
+        results.slice(0, 100).forEach(function(result) {
+            var $result = jQuery("<li>");
+            $result.append(jQuery("<a>", {
+                href: result.uri,
+                text: result.title
+            }));
+            $results.append($result);
+        });
+    }
+ 
+    // Let's get started
+    initLunr();
+ 
+    jQuery(document).ready(function() {
+        initUI();
+    });
+    </script>
+
+  </body>
+</html>

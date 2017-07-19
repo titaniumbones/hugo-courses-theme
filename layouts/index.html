@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hacking History: an experiment in digital community">
+    <meta name="author" content="Matt Price">
+    <title>Hacking History</title>
+
+    {{ "<!--icon for browser shortcuts-->" | safeHTML }}
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
+    {{ "<!--icon to represent this web page on Apple iOS-->" | safeHTML }}
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    {{ "<!--Bootstrap core CSS-->" | safeHTML }}
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-changes-gohugo.css">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-additions-gohugo.css">
+
+    {{ "<!--non-Bootstrap CSS (keep below Bootstrap CSS)-->" | safeHTML }}
+    <link rel="stylesheet" type="text/css" href="/vendor/OwlCarousel2/css/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="/vendor/OwlCarousel2/css/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Arbutus+Slab%7CCabin:600%7CSource+Code+Pro">
+    <link rel="stylesheet" type="text/css" href="/css/hugofont.css">
+    <link rel="stylesheet" type="text/css" href="/css/home-page-style.css">
+    <link rel="stylesheet" type="text/css" href="/css/home-page-style-responsive.css">
+  </head>
+  <body>
+
+    {{ "<!--full page image header area start-->" | safeHTML }}
+    <div id="top" class="header">
+      <div class="vert-text">
+        <a href="#intro">
+          <h1>Hacking History 2017</h1>
+          <h2>Khangchendzonga Edition</h2>
+        </a>
+        <div class="buttonbox">
+            <a class="btn-primary btn btn-lg" href="/article/syllabus/">
+                Syllabus <i class="icon-idea"></i>
+            </a>
+            <a class="btn-success btn btn-lg" href="/assignment/">
+                Assignments <i class="icon-arrow-down"></i>
+            </a>
+            <a class="btn-info btn btn-lg" href="/lab/">
+                Labs <i class="icon-beaker"></i>
+            </a>
+            <a class="btn-repo btn btn-lg" href="https://github.com/titaniumbones/hackinghistory">
+                GitHub <i class="icon-octocat"></i>
+            </a>
+        </div>
+      </div>
+    </div>
+    {{ "<!--full page image header area end-->" | safeHTML }}
+
+    {{ "<!--main start-->" | safeHTML }}
+    <div id="main">
+
+        {{ "<!--intro start-->" | safeHTML }}
+        <div id="intro" class="counterpoint">
+          <div class="container">
+
+            {{ "<!--row start-->" | safeHTML }}
+            <div class="row">
+              <div class="text-center col-md-6 col-md-offset-3">
+                  <i class="lead-icon icon-pacman"></i>
+                <h2>Digital Humanities for Historians</h2>
+                <p class="lead">
+                    In a new media era, we need to work with new tools. 
+                </p>
+              </div>
+            </div>
+            {{ "<!--row end-->" | safeHTML }}
+
+          </div>
+        </div>
+        {{ "<!--intro end-->" | safeHTML }}
+
+        {{ "<!--point start-->" | safeHTML }}
+        <div class="point">
+          <div class="container">
+
+            {{ "<!--row start-->" | safeHTML }}
+            <div class="row">
+              <div class="text-center col-md-6 col-md-offset-3">
+                  <i class="point-icon icon-tux"></i>
+                  <i class="point-icon icon-apple"></i>
+                  <i class="point-icon icon-windows8"></i>
+                <h2>Work with Communities</h2>
+                <p class="lead">
+                 Our classwork directly benefits community organizations.
+                </p>
+              </div>
+            </div>
+            {{ "<!--row end-->" | safeHTML }}
+
+          </div>
+        </div>
+        {{ "<!--point end-->" | safeHTML }}
+
+        {{ "<!--counterpoint start-->" | safeHTML }}
+        <div class="counterpoint">
+          <div class="container">
+
+            {{ "<!--row start-->" | safeHTML }}
+            <div class="row">
+              <div class="text-center col-md-6 col-md-offset-3">
+                  <i class="lead-icon icon-rocket"></i>
+                <h2>A Capstone Experience</h2>
+                <p class="lead">
+                  yay.
+                </p>
+              </div>
+            </div>
+            {{ "<!--row end-->" | safeHTML }}
+
+          </div>
+        </div>
+        {{ "<!--counterpoint end-->" | safeHTML }}
+
+        {{ "<!--point start-->" | safeHTML }}
+        <div class="point">
+          <div class="container">
+
+            {{ "<!--row start-->" | safeHTML }}
+            <div class="row">
+              <div class="text-center col-md-6 col-md-offset-3">
+                  <i class="point-icon icon-fork"></i>
+                <h2>Flexible</h2>
+                <p class="lead">
+                Hugo is designed to work the way you do.
+                Organize your content however you want with any URL structure.
+                Group your content using your own indexes and categories.
+                Define your own metadata in any format: YAML, TOML or JSON.
+                Best of all, Hugo handles all these variations
+                with virtually no configuration. Hugo
+                just works.
+                </p>
+              </div>
+            </div>
+            {{ "<!--row end-->" | safeHTML }}
+
+          </div>
+        </div>
+        {{ "<!--point end-->" | safeHTML }}
+
+
+
+    </div>
+    {{ "<!--main end-->" | safeHTML }}
+
+
+        {{ "<!--call to action start-->" | safeHTML }}
+        <div id="action" class="call-to-action">
+          <div class="container">
+
+            {{ "<!--row start-->" | safeHTML }}
+            <div class="row">
+              <div class="text-center col-md-10 col-md-offset-1">
+                <h1>Getting Started</h1>
+                <a class="btn-primary btn btn-lg" href="https://github.com/gohugoio/hugo/releases">
+                    Download
+                    <i class="icon-arrow-down"></i>
+                </a>
+                <a class="quickstart" href="/overview/quickstart/">
+                    Quickstart Guide
+                </a>
+                <p>&nbsp;</p>
+                <h4>Using Homebrew?</h4>
+                <pre><code>brew install hugo</code></pre>
+              </div>
+            </div>
+            {{ "<!--row end-->" | safeHTML }}
+
+          </div>
+        </div>
+        {{ "<!--call to action end-->" | safeHTML }}
+
+        {{ "<!--footer start-->" | safeHTML }}
+        <footer>
+          <div class="container">
+
+            {{ "<!--row start-->" | safeHTML }}
+            <div class="row">
+              <div class="text-center col-md-6 col-md-offset-3">
+                <ul class="list-inline">
+                    <li><a class="icon-twitter icon-2x" href="https://twitter.com/uoftoutdoors"></a></li>
+                    <li><a class="icon-octocat icon-2x" href="https://github.com/titaniumbones/h"></a></li>
+                </ul>
+                <hr>
+                <p>Copyleft <span class="copy-left">&copy;</span> Matt Price 2010&ndash;{{ now.Format "2006" }}</p>
+              </div>
+            </div>
+            {{ "<!--row end-->" | safeHTML }}
+
+          </div>
+        </footer>
+        {{ "<!--footer end-->" | safeHTML }}
+
+  {{ "<!--JavaScript: Keep at the end of the document so the page loads faster-->" | safeHTML }}
+  <script src="/vendor/jquery/js/jquery-2.1.4.min.js"></script>
+
+  {{ "<!--Bootstrap core JavaScript here-->" | safeHTML }}
+  {{ `<!--<script src="/vendor/twitter/js/bootstrap.min.js"></script>-->` | safeHTML }}
+
+  <script src="/vendor/OwlCarousel2/js/owl.carousel.min.js"></script>
+  <script src="/js/owl.carousel-custom.js"></script>
+
+  {{ "<!--custom JavaScript-->" | safeHTML }}
+  <script>
+    $(function() {
+        $('a[href*=#]:not([href=#])').click(function() {
+          if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+              || location.hostname == this.hostname) {
+
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+            if (target.length) {
+              $('html,body').animate({
+                scrollTop: target.offset().top
+              }, 1000);
+              return false;
+            }
+          }
+        });
+      });
+  </script>
+
+{{ "<!--Google analytics-->" | safeHTML }}
+  </body>
+</html>
