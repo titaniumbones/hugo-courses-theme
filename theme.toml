@@ -16,6 +16,7 @@ min_version = "0.24.1"
 
 # If porting an existing theme
 [original]
-  name = "Hugo Docs THeme"
+  name = "Hugo Docs Theme"
   homepage = "https://gohugo.io"
   repo = "https://github hugodocs"
+
