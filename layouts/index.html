@@ -10,7 +10,7 @@
     {{ .Scratch.Add "title" "" }}{{ if isset .Site.Data.titles .Title }}{{ .Scratch.Set "title" (index .Site.Data.titles .Title).title }}{{ else }}{{ .Scratch.Set "title" .Site.Title}}{{end}}
     <title>{{ .Scratch.Get "title" }}</title>
 
-
+b
     <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
     {{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
     {{ .Hugo.Generator }}
@@ -25,7 +25,7 @@
 
     {{ "<!--Bootstrap core CSS-->" | safeHTML }}
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap-changes-gohugo.css">
+    <!-- <link rel="stylesheet" type="text/css" href="/css/bootstrap-changes-gohugo.css"> -->
     <link rel="stylesheet" type="text/css" href="/css/bootstrap-additions-gohugo.css">
     {{ "<!--non-Bootstrap CSS (keep below Bootstrap CSS)-->" | safeHTML }}
     <link rel="stylesheet" type="text/css" href="/vendor/OwlCarousel2/css/owl.carousel.css">
