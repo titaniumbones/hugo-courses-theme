@@ -83,8 +83,8 @@
             <div class="row">
               <div class="text-center col-md-6 offset-md-3">
                 <ul class="list-inline">
-                    <li><a class="icon-twitter icon-2x" href="{{ .Site.Params.twitterAddress }}"></a></li>
-                    <li><a class="icon-octocat icon-2x" href="{{.Site.Params.ghAddress}}"></a></li>
+                  {{with .Site.Params.twitterAddress }}<li><a class="icon-twitter icon-2x" href="{{ . }}"></a></li>{{ end }}
+                  {{ with .Site.Params.ghAddress }} <li><a class="icon-octocat icon-2x" href="{{ . }}"></a></li>{{ end }}
                 </ul>
                 <hr>
                 <p>Copyleft <span class="copy-left">&copy;</span> {{.Site.Params.author}} 2010&ndash;{{ now.Format "2006" }}</p>
