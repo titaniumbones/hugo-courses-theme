@@ -14,10 +14,8 @@
     <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
     {{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
     {{ .Hugo.Generator }}
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    {{ .Scratch.Add "title" "" }}{{ if isset .Site.Data.titles .Title }}{{ .Scratch.Set "title" (index .Site.Data.titles .Title).title }}{{ else }}{{ .Scratch.Set "title" .Title}}{{end}}
-    <title>Hugo - {{ .Scratch.Get "title" }}</title>
 
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 
     {{ "<!--icon for browser shortcuts-->" | safeHTML }}
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
