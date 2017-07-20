@@ -703,7 +703,7 @@ ul#lunr-results {
     background-color: #fbfbfb; }
 
 /* canoe icon hack */
-.icon-canoe:before {
+.icon-canoe {
   background-image: url("../fonts/canoe.svg"); }
 
 /*# sourceMappingURL=style.css.map */
