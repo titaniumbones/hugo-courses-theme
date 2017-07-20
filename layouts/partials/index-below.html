@@ -1,0 +1,24 @@
+{{ "<!--main start-->" | safeHTML }}
+<div id="main">
+
+  {{ "<!--point/counterpoint start-->" | safeHTML }}
+  {{range $index, $value :=.Params.containersections }}
+  <div {{if eq $index 0 }}id="intro"{{end}} class="{{if mod $index 2 }}point{{else}}counterpoint{{ end }}">
+    <div class="container">
+      <div class="row">
+        <div class="text-center col-md-6 offset-md-3">
+          <i class="lead-icon icon-{{$value.icon}}"></i>
+          <h2>{{$value.name}}</h2>
+          <p class="lead">
+            {{$value.lead}}
+          </p>
+        </div>
+      </div>
+      {{ "<!--row end-->" | safeHTML }}
+      
+    </div>
+  </div>    {{ "<!--point/counterpoint end-->" | safeHTML }}
+  {{end}}             {{ "<!--range countainersecitons end-->" | safeHTML }}
+
+</div>
+{{ "<!--main end-->" | safeHTML }}
