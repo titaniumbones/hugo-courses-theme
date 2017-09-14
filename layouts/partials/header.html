@@ -54,9 +54,7 @@
             </div>
       </header>
       <!--header end-->
-
 {{ partial "menu.html" . }}
-
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
@@ -74,16 +72,8 @@
               <!--</div>-->
 
               <div class="row">
-                  <div class="col-md-1">
-                      {{ if .IsPage }}
-                      {{ with .GetParam "prev" }}
-                      <a class="navigation prev" href="{{.}}">
-                      <i class="fa fa-angle-left"></i>
-                      </a>
-                      {{ end }}
-                      {{ end }}
-                  </div>
-                <div class="col-md-10">
+
+                <div class="col-md-12">
                     <section class="panel">
                           <!--<header class="panel-heading">-->
                               <!--<h3>{{ .Scratch.Get "title" }}</h3>-->
