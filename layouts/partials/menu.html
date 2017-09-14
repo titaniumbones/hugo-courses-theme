@@ -51,6 +51,19 @@
               {{end}} <!-- end if .HasChildren -->
        </li>
             {{end}} <!-- end range -->
+          <li><a href="/slides/">Class Slides & Notes</a></li>
+
+          {{ if and ($.IsNode) (eq $.Section "slides") }}
+          <ul>
+            {{ range .Data.Pages }}
+            <li>
+              <a href="{{ .Permalink }}" target="slideframe">{{ .File.BaseFileName }}</a>
+            </li>
+            {{end}}
+          </ul>
+          {{end}}
+
+
                         <li> <a href="/article/about/" target="blank"><i class='fa fa-life-ring'></i> <span>About This Site</span></a> </li>
 
             {{ if .IsPage }}
