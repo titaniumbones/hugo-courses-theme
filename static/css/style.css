@@ -704,6 +704,25 @@ ul#lunr-results {
 
 /* canoe icon hack */
 .icon-canoe {
-  background-image: url("../fonts/canoe.svg"); }
+    background-image: url("../fonts/canoe.svg"); }
+
+/* fix problem with targets scrolling into the header */
+/* sweet solution from https://stackoverflow.com/questions/4086107/html-positionfixed-page-header-and-in-page-anchors#answer-28824157 */
+:target:before {
+    content:"";
+    display:block;
+    height:60px; /* fixed header height*/
+    margin:-60px 0 0; /* negative fixed header height */
+}
+/* iframe */
+iframe {
+    width:inherit;
+    height: calc(100vh - 60px);
+    box-sizing: border-box;
+    position: sticky;
+    top :150px;
+    
+    
+}
 
 /*# sourceMappingURL=style.css.map */
