@@ -1,0 +1,7 @@
+* Bootstrap 4-based Hugo theme designed for course sites.
+
+This is a fork of the old [[https://gohugo.io][Hugo docs]] site, from before them moved to `postcss`. I use Bootstrap 4.0-alpha as the framework, and have added a couple of small features while stripping others out. 
+
+- The main new feature is support for [[https://github.com/hakimel/reveal.js/][the reveal.js presentation framework]]. Other people use native markdown to od their presentations, which is more efficient, but since I work in [[https://orgmode.org][Org-mode]], I just export to reveal-bsed HTMl using the [[https://github.com/yjwen/org-reveal/][org-reveal]] exporter. I use a little piece of Frankencode to do this in a Hugo-compatible way -- see my undocumented [[https://github.com/titaniumbones/ox-huveal][exporter repo here]].  
+
+This is still very much a work in progress, and bug reports (and fixes!) are welcome. You can see the theme in action at [[http://2017.hackinghistory.ca][Hacking History]] and [[http://wildwaters.hackinghistory.ca][Wild Waters]].  
